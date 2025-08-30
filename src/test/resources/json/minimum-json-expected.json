@@ -8,16 +8,16 @@
                     {
                         "sqlFile": {
                             "path": "changesets/user/initial_db.sql",
-                            "relativeToChangelogFile": true,
-                            "encoding": "UTF-8"
+                            "encoding": "UTF-8",
+                            "relativeToChangelogFile": true
                         }
                     }
                 ],
                 "rollback": {
                     "sqlFile": {
                         "path": "changesets/user/rollback_db.sql",
-                        "relativeToChangelogFile": true,
-                        "encoding": "UTF-8"
+                        "encoding": "UTF-8",
+                        "relativeToChangelogFile": true
                     }
                 }
             }
@@ -30,16 +30,16 @@
                     {
                         "sqlFile": {
                             "path": "changesets/subscription/initial_db.sql",
-                            "relativeToChangelogFile": true,
-                            "encoding": "UTF-8"
+                            "encoding": "UTF-8",
+                            "relativeToChangelogFile": true
                         }
                     }
                 ],
                 "rollback": {
                     "sqlFile": {
                         "path": "changesets/subscription/rollback_db.sql",
-                        "relativeToChangelogFile": true,
-                        "encoding": "UTF-8"
+                        "encoding": "UTF-8",
+                        "relativeToChangelogFile": true
                     }
                 }
             }

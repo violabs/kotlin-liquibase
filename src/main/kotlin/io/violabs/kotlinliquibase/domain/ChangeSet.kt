@@ -1,7 +1,9 @@
 package io.violabs.kotlinliquibase.domain
 
+import com.fasterxml.jackson.annotation.JsonPropertyOrder
 import io.violabs.konstellation.metaDsl.annotation.GeneratedDsl
 
+@JsonPropertyOrder("id", "author", "created", "context", "changes")
 @GeneratedDsl(withListGroup = true)
 data class ChangeSet(
     /**
@@ -129,7 +131,7 @@ data class ChangeSet(
      * Specifies SQL statements or Change Type tags that describe how to rollback the changeset.
      * For more information, see Liquibase Rollback Workflow and Automatic and Custom Rollbacks.
      */
-    val rollback: List<Any>? = null,
+    val rollback: Rollback? = null,
     /**
      * Liquibase Pro 4.26.0+.
      * Formatted SQL only.
