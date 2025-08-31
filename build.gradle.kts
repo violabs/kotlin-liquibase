@@ -1,4 +1,4 @@
-import io.violabs.plugins.open.secrets.gradleloader.domain.getPropertyOrEnv
+import java.util.Properties
 
 plugins {
 	kotlin("jvm") version "2.1.20"
@@ -59,11 +59,19 @@ tasks.withType<Test> {
 	useJUnitPlatform()
 }
 
+secretsLoader {}
 
 digitalOceanSpacesPublishing {
 	bucket = "open-reliquary"
-	accessKey = project.getPropertyOrEnv("spaces.key", "DO_SPACES_API_KEY")
-	secretKey = project.getPropertyOrEnv("spaces.secret", "DO_SPACES_SECRET")
+	
+	val secretsFile = file("secret.properties")
+	val props = Properties()
+	if (secretsFile.exists()) {
+		secretsFile.inputStream().use { props.load(it) }
+	}
+	
+	accessKey = props.getProperty("spaces.key") ?: System.getenv("DO_SPACES_API_KEY") ?: ""
+	secretKey = props.getProperty("spaces.secret") ?: System.getenv("DO_SPACES_SECRET") ?: ""
 	publishedVersion = version.toString()
 	dryRun = false
 }
